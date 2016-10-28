@@ -1,17 +1,4 @@
-#!/bin/sh
-if [$1 == ""]; then
-   size="1G"
-else
-   location=$2
-fi
-
-if [$2 == ""]; then
-   location="/swapfile"
-else
-   location=$2
-fi
-
-fallocate -l $size $location
+fallocate -l 4G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
